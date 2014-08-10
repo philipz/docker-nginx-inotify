@@ -3,9 +3,12 @@ MAINTAINER Philipz <philipzheng@gmail.com>
 RUN apt-get -qq update
 RUN apt-get install -y nginx inotify-tools
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+RUN rm /etc/nginx/sites-enabled/default
+#For Nignx
 RUN mkdir /etc/service/nginx
 ADD nginx.sh /etc/service/nginx/run
 RUN chmod +x /etc/service/nginx/run
+#For inotify
 RUN mkdir /etc/service/inotify
 ADD reload.sh /etc/service/inotify/run
 RUN chmod +x /etc/service/inotify/run
