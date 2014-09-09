@@ -2,7 +2,7 @@ FROM phusion/baseimage:latest
 MAINTAINER Philipz <philipzheng@gmail.com>
 RUN apt-get -qq update
 RUN apt-get install -y nginx inotify-tools
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+ADD nginx.conf /etc/nginx/nginx.conf
 RUN rm /etc/nginx/sites-enabled/default
 #For Nignx
 RUN mkdir /etc/service/nginx
